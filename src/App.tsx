@@ -1,34 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { ThemeProvider } from "@/components/theme-provider"
+
+import MainLayout from "@/layouts/MainLayout"
+import HomePage from "@/pages/HomePage"
+import ArticlesPage from "@/pages/ArticlesPage"
+import CreateBlogPage from "@/pages/CreateBlogPage"
+import EditBlogPage from "@/pages/EditBlogPage"
+import ProfilePage from "@/pages/ProfilePage"
+import CommunitiesPage from "@/pages/CommunitiesPage"
+
+import { Toaster } from "@/components/ui/toaster"
+
+const queryClient = new QueryClient()
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+
+              {/* Dashboard */}
+              <Route index element={<HomePage />} />
+
+              {/* Articles Page (NEW & SEPARATE) */}
+              <Route path="articles" element={<ArticlesPage />} />
+
+              {/* Blog Read Flow (unchanged) */}
+              <Route path="blogs/:id" element={<HomePage />} />
+              <Route path="blogs/:id/edit" element={<EditBlogPage />} />
+
+              {/* Create */}
+              <Route path="create" element={<CreateBlogPage />} />
+
+              {/* Profile */}
+              <Route path="profile" element={<ProfilePage />} />
+
+              {/* Network / Communities */}
+              <Route path="communities" element={<CommunitiesPage />} />
+
+            </Route>
+          </Routes>
+
+          <Toaster />
+        </BrowserRouter>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 
