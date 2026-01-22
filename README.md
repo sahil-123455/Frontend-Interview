@@ -76,9 +76,11 @@ layouts/ – Shared layout (Navbar, Footer)
 npm install
 
 2️⃣ Start frontend
+
 npm run dev
 
 3️⃣ Start mock backend (JSON Server)
+
 npm run server
 
 
