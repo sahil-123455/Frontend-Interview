@@ -1,171 +1,105 @@
-# CA Monk - Blog Application Assignment
+CA Monk – Frontend Assignment
 
-Welcome to the CA Monk Blog Application assignment! This project tests your ability to build a modern React application with state management, styling, and component libraries.
+This project is a frontend web application built as part of the CA Monk Frontend Assignment.
 
-## Installation
+The goal was to design and implement a modern, scalable, and user-friendly interface for reading and managing articles while maintaining clean code and good UX practices.
 
-### Prerequisites
-- Node.js (v18 or higher)
-- Git
-- React.js knowledge
-- Familiarity with TanStack Query, Tailwind CSS, and shadcn/ui.
+✨ Key Features
 
-### Setup Instructions
+Modern dark & light theme with smooth transitions
 
-1. **Fork the repository**
-   - Click **Fork** on GitHub to create a copy in your account.
-   - Clone your forked repository:
-     ```bash
-     git clone <your-forked-repo-url>
-     cd camonk-interview
-     ```
+Dashboard with article preview and reading panel
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+Dedicated Articles page with grid layout
 
-3. **Install required libraries for the assignment** , ie, TanStack Query, Tailwind CSS, and  shadcn/ui
-4. **Start the JSON Server (Backend API)**
-   ```bash
-   npm run server
-   ```
-   The API will run on `http://localhost:3001`
+Read full articles inside a large modal (no page reload)
 
-5. **Start the Development Server (in a new terminal)**
-   ```bash
-   npm run dev
-   ```
-   The app will run on `http://localhost:5173`
+Create, edit, and delete articles
 
-## Assignment Tasks
+Image support using direct image URLs
 
-You are required to build a blog application with the following features:
+Responsive design for all screen sizes
 
-### Required Technologies
-- ✅ **TanStack Query** - For server state management and data fetching
-  - 📚 [Documentation](https://tanstack.com/query/latest)
-- ✅ **Tailwind CSS** - For styling
-  - 📚 [Documentation](https://tailwindcss.com/docs)
-- ✅ **shadcn/ui** - For UI components
-  - 📚 [Documentation](https://ui.shadcn.com/)
+Smooth hover effects and subtle animations
 
-## UI Reference
+🛠 Tech Stack
 
-Here's a reference design for the blog application layout:
+React + TypeScript
 
-![Blog Reference](image.png)
+Tailwind CSS
 
-**Left Panel:** Blog list view showing blog cards with category, title, and description  
-**Right Panel:** Blog detail view displaying cover image, full content
+React Router
 
-UI IMAGE - ![UI-refernece](ui.jpeg)
+TanStack React Query
 
-> **Note:** This is just a reference design. Your implementation does not have to look exactly like this. 
+JSON Server (mock backend)
 
-For the blog content, use plain text — no need to use HTML-formatted text.
+shadcn/ui components
 
-### Tasks to Complete
+📁 Project Structure
 
-#### 1. **Get All Blogs**
-- Create a component to display all blogs using `GET /blogs`
-- Use TanStack Query for data fetching
-- Handle loading and error states
+src/
 
-#### 2. **Get Blog by ID**
-- Implement single blog view using `GET /blogs/:id`
-- Use TanStack Query for data fetching
+│── components/
 
-#### 3. **Create a New Blog**
-- Build a form to create a new blog using `POST /blogs`
-- Invalidate queries after successful creation
+│── feature/
 
-> Organize your components in a suitable file structure within the `src/` directory.
+├── ui/
 
-### API Endpoints
+│── hooks/
 
-The JSON Server provides the following endpoints:
+│── layouts/
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/blogs` | Get all blogs |
-| GET | `/blogs/:id` | Get a specific blog by ID |
-| POST | `/blogs` | Create a new blog |
+│── pages/
 
-### Evaluation Criteria
+│── services/
 
-Your submission will be evaluated on:
-- ✅ Correct implementation of TanStack Query hooks
-- ✅ Proper use of Tailwind CSS for styling
-- ✅ Integration of shadcn/ui components
-- ✅ Code organization and structure
-- ✅ Error handling and loading states
-- ✅ Responsive design []
-- ✅ User experience and UI polish
+│── lib/
+
+│── types.ts
 
 
+components/ – Reusable UI & feature components
 
-## Sample Blog Object
+pages/ – Route-based pages (Dashboard, Articles, Communities)
 
-```json
-{
-  "id": 1,
-  "title": "Future of Fintech",
-  "category": ["FINANCE", "TECH"],
-  "description": "Exploring how AI and blockchain are reshaping financial services",
-  "date": "2026-01-11T09:12:45.120Z",
-  "coverImage": "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg",
-  "content": "Full blog content..."
-}
-```
+hooks/ – Custom hooks using React Query
 
-description: A short summary of the blog  
-content: The full content of the blog
+services/ – API layer for blogs
 
-## Tips
+layouts/ – Shared layout (Navbar, Footer)
 
-- Set up TanStack Query's `QueryClientProvider` in your app root
-- Configure Tailwind CSS properly in your config files
-- Use shadcn components like `Card`, `Button`, `Input`, etc.
-- Handle loading states with skeletons
-- Implement proper error boundaries
-- Consider using React Router for navigation (optional)
+▶️ Running the Project Locally
 
-## Submission
+1️⃣ Install dependencies
 
-Once you've completed the assignment:
-1. Ensure all tasks are working correctly
-2. Commit your changes with clear commit messages
-3. Push your changes to your **forked** repository
-4. Share the link to your forked repository for review in the Google Form provided
+npm install
 
-## FAQ
+2️⃣ Start frontend
+npm run dev
 
-**Do I need to deploy the code?**  
-No. Simply work on your forked repository, commit and push your changes, and share the repository link via the Google Form.
+3️⃣ Start mock backend (JSON Server)
+npm run server
 
-**Is it mandatory to use TypeScript and TanStack Query?**  
-Yes, using both TypeScript and TanStack Query is compulsory for this assignment.
 
-**Is using JSON Server mandatory, or can I create my own server?**  
-Using JSON Server is mandatory. Please use the provided JSON Server setup rather than creating your own backend.
+Frontend: http://localhost:5173
 
-**What should I use for styling?**  
-Use **Tailwind CSS** and **shadcn/ui** for styling. You are expected to install, configure, and use both Tailwind CSS and shadcn/ui components in your implementation.
+Backend API: http://localhost:3001
 
-**What are the main things you will evaluate?**  
-We will mainly look at:
-- Correct use of the required technologies (TypeScript, TanStack Query, Tailwind CSS, shadcn/ui)  
-- Code quality and structure  
-- UI/UX, including responsiveness and overall experience  
+📝 Notes
 
-**What happens after I submit the assignment?**  
-If you are shortlisted, you will receive an email about the next round. The next round will be a task-based session focused on your coding skills and React knowledge.
+Articles are fetched using React Query for better state management
 
-**Will my solution be used commercially?**  
-No. This assignment is only for the hiring process and will not be used commercially.
+Reading an article opens a modal, not a separate page
 
-**Have more questions?**  
-If you have any additional doubts, feel free to reach out at: `developer@camonk.com`.
+Image URLs can be directly provided while creating a blog
 
-Good luck! 🚀
+UI design follows a clean, professional, and minimal approach inspired by modern platforms
+
+👤 Author
+
+Sahil Gupta
+
+Frontend Developer
+
+Built with attention to detail for the CA Monk team.
